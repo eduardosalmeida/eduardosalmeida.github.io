@@ -63,6 +63,7 @@ h2 .more { font-family: var(--body); font-size: 14px; font-weight: 400; margin-l
 h3 { font-size: 16px; font-weight: 600; margin: 0; }
 p { margin: 0; max-width: 65ch; }
 .about { display: grid; gap: 12px; }
+.about p { text-align: left; }
 .lede { font-family: var(--display); font-size: 23px; line-height: 1.4; max-width: 36ch; text-wrap: balance; }
 
 /* Placeholder treatment: everything still to be filled in */
@@ -376,7 +377,7 @@ function setLang(lang) {
 }
 document.getElementById("lang-pt").addEventListener("click", () => setLang("pt"));
 document.getElementById("lang-en").addEventListener("click", () => setLang("en"));
-try { if (localStorage.getItem("lang") === "en") setLang("en"); } catch (e) {}
+{ let l = "en"; try { if (localStorage.getItem("lang") === "pt") l = "pt"; } catch (e) {} setLang(l); }
 
 const PUBS = JSON.parse(document.getElementById("pubs-data").textContent);
 const SELF = /^Eduardo (Santana [dD]e )?Almeida$/;
